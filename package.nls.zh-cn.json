@@ -1,0 +1,12 @@
+{
+  "ext.displayName": "C/C++ .mk IntelliSense 更新器",
+  "ext.description": "根据 *.mk 文件更新 C/C++ IntelliSense 配置。",
+  "command.updateFromThis.title": "从此 .mk 文件更新 IntelliSense",
+  "command.pickMk.title": "更新 IntelliSense：选择一个 .mk 文件...",
+  "config.title": "MK IntelliSense 更新器",
+  "config.libraryMkSearchGlobs.description": "用于搜索候选库 .mk 文件（匹配 .a）的 Glob 路径。示例：[\"libs/**/*.mk\", \"apps/**/*.mk\"]",
+  "config.lowConfidenceThreshold.description": "低于该分数的匹配将被视为低可信度。",
+  "config.lowConfidenceMode.description": "低可信度匹配（分数 < 阈值）的处理方式。",
+  "config.lowConfidenceMode.enum.includeWithWarning": "保留为候选并提示 LOW（默认）。",
+  "config.lowConfidenceMode.enum.discard": "丢弃低可信度匹配。"
+}

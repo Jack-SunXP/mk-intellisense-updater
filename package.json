@@ -1,0 +1,88 @@
+{
+    "name": "mk-intellisense-updater",
+    "displayName": "%ext.displayName%",
+    "description": "%ext.description%",
+    "version": "0.1.0",
+    "publisher": "JackSun",
+    "author": "Jack Sun",
+    "license": "SEE LICENSE IN LICENSE.md",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Jack-SunXP/mk-intellisense-updater"
+    },
+    "bugs": {
+        "url": "https://github.com/Jack-SunXP/mk-intellisense-updater/issues"
+    },
+    "icon": "assets/icon.png",
+    "engines": {
+        "vscode": "^1.80.0"
+    },
+    "categories": ["Other"],
+    "activationEvents": [],
+    "main": "./extension.js",
+    "contributes": {
+        "commands": [
+            {
+                "command": "mkintellisense.updateIntelliSense",
+                "title": "%command.updateFromThis.title%"
+            },
+            {
+                "command": "mkintellisense.updateIntelliSensePick",
+                "title": "%command.pickMk.title%"
+            }
+        ],
+        "menus": {
+            "explorer/context": [
+                {
+                    "when": "resourceFilename =~ /.*\\.mk$/",
+                    "command": "mkintellisense.updateIntelliSense",
+                    "group": "navigation@1"
+                }
+            ],
+            "commandPalette": [
+                {
+                    "command": "mkintellisense.updateIntelliSense",
+                    "when": "false"
+                }
+            ]
+        },
+        "configuration": {
+            "title": "%config.title%",
+            "properties": {
+                "mkintellisense.libraryMkSearchGlobs": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "default": [
+                        "**/*.mk"
+                    ],
+                    "scope": "resource",
+                    "description": "%config.libraryMkSearchGlobs.description%"
+                },
+                "mkintellisense.lowConfidenceThreshold": {
+                    "type": "number",
+                    "default": 0.7,
+                    "minimum": 0,
+                    "maximum": 1,
+                    "scope": "resource",
+                    "description": "%config.lowConfidenceThreshold.description%"
+                },
+                "mkintellisense.lowConfidenceMode": {
+                    "type": "string",
+                    "default": "include_with_warning",
+                    "enum": [
+                        "include_with_warning",
+                        "discard"
+                    ],
+                    "enumDescriptions": [
+                        "%config.lowConfidenceMode.enum.includeWithWarning%",
+                        "%config.lowConfidenceMode.enum.discard%"
+                    ],
+                    "scope": "resource",
+                    "description": "%config.lowConfidenceMode.description%"
+                }
+            }
+        }
+    }
+}

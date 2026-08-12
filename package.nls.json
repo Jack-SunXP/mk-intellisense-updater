@@ -1,0 +1,12 @@
+{
+  "ext.displayName": "C/C++ .mk IntelliSense Updater",
+  "ext.description": "Update C/C++ IntelliSense config from *.mk files.",
+  "command.updateFromThis.title": "Update IntelliSense from this .mk file",
+  "command.pickMk.title": "Update IntelliSense: Pick a .mk file...",
+  "config.title": "MK IntelliSense Updater",
+  "config.libraryMkSearchGlobs.description": "Glob patterns used to search candidate library .mk files for .a matching. Example: [\"libs/**/*.mk\", \"apps/**/*.mk\"]",
+  "config.lowConfidenceThreshold.description": "Match score below this value is treated as low confidence.",
+  "config.lowConfidenceMode.description": "How to handle low-confidence matches (score < threshold).",
+  "config.lowConfidenceMode.enum.includeWithWarning": "Include in candidates and show LOW warning (default).",
+  "config.lowConfidenceMode.enum.discard": "Discard low-confidence matches."
+}
