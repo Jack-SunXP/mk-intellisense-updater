@@ -52,8 +52,8 @@
   - 默认：`0.7`
 - `mkintellisense.lowConfidenceMode`
   - 控制低可信度匹配的处理方式。
-  - `include_with_warning`（默认）：保留并标记 LOW，同时给出提醒。
-  - `discard`：直接丢弃低可信度匹配。
+  - `discard`（默认）：直接丢弃低可信度匹配。
+  - `include_with_warning`：保留并标记 LOW，同时给出提醒。
 
 以上设置支持工作区级配置，不同项目可使用不同搜索路径。
 
@@ -111,8 +111,8 @@ This extension reads include settings from a selected build file (`.mk` file) an
   - Default: `0.7`
 - `mkintellisense.lowConfidenceMode`
   - Controls how low-confidence matches are handled.
-  - `include_with_warning` (default): keep and mark LOW with warning.
-  - `discard`: drop low-confidence matches directly.
+  - `discard` (default): drop low-confidence matches directly.
+  - `include_with_warning`: keep and mark LOW with warning.
 
 These settings support workspace-level configuration, so different projects can use different search paths.
 

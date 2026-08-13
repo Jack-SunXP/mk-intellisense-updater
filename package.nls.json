@@ -7,6 +7,6 @@
   "config.libraryMkSearchGlobs.description": "Glob patterns used to search candidate library .mk files for .a matching. Example: [\"libs/**/*.mk\", \"apps/**/*.mk\"]",
   "config.lowConfidenceThreshold.description": "Match score below this value is treated as low confidence.",
   "config.lowConfidenceMode.description": "How to handle low-confidence matches (score < threshold).",
-  "config.lowConfidenceMode.enum.includeWithWarning": "Include in candidates and show LOW warning (default).",
-  "config.lowConfidenceMode.enum.discard": "Discard low-confidence matches."
+  "config.lowConfidenceMode.enum.includeWithWarning": "Include in candidates and show LOW warning.",
+  "config.lowConfidenceMode.enum.discard": "Discard low-confidence matches (default)."
 }

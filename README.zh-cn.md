@@ -43,20 +43,15 @@
 
 - `mkintellisense.libraryMkSearchGlobs`
   - 控制候选库 `.mk` 文件的搜索范围（可配置多条路径）。
-  - 默认：`[
-    "**/*.mk"
-  ]`
-  - 示例：`[
-    "libs/**/*.mk",
-    "apps/**/*.mk"
-  ]`
+  - 默认：`["**/*.mk"]`
+  - 示例：`["libs/**/*.mk", "apps/**/*.mk"]`
 - `mkintellisense.lowConfidenceThreshold`
   - 低于该分数的匹配视为低可信度。
   - 默认：`0.7`
 - `mkintellisense.lowConfidenceMode`
   - 控制低可信度匹配的处理方式。
-  - `include_with_warning`（默认）：保留并标记 LOW，同时给出提醒。
-  - `discard`：直接丢弃低可信度匹配。
+  - `discard`（默认）：直接丢弃低可信度匹配。
+  - `include_with_warning`：保留并标记 LOW，同时给出提醒。
 
 以上设置支持工作区级配置，不同项目可使用不同搜索路径。
 

@@ -1,2 +1,5 @@
 *.vsix
 node_modules/
+COPILOT_MEMORY_EXPORT.md
+*.7z
+GitExtensions.settings

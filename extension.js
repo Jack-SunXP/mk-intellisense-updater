@@ -65,7 +65,7 @@ function getMatchingSettings() {
     const cfg = vscode.workspace.getConfiguration("mkintellisense");
     const searchGlobsRaw = cfg.get("libraryMkSearchGlobs", ["**/*.mk"]);
     const thresholdRaw = cfg.get("lowConfidenceThreshold", 0.7);
-    const lowConfidenceModeRaw = cfg.get("lowConfidenceMode", "include_with_warning");
+    const lowConfidenceModeRaw = cfg.get("lowConfidenceMode", "discard");
 
     /** @type {string[]} */
     let searchGlobs = [];

@@ -17,8 +17,15 @@
     "engines": {
         "vscode": "^1.80.0"
     },
-    "categories": ["Other"],
-    "activationEvents": [],
+    "categories": ["Programming Languages"],
+    "keywords": [
+        "makefile",
+        "include",
+        "include-path",
+        "c++",
+        "c",
+        "static-analysis"
+    ],
     "main": "./extension.js",
     "contributes": {
         "commands": [
@@ -70,14 +77,14 @@
                 },
                 "mkintellisense.lowConfidenceMode": {
                     "type": "string",
-                    "default": "include_with_warning",
+                    "default": "discard",
                     "enum": [
-                        "include_with_warning",
-                        "discard"
+                        "discard",
+                        "include_with_warning"
                     ],
                     "enumDescriptions": [
-                        "%config.lowConfidenceMode.enum.includeWithWarning%",
-                        "%config.lowConfidenceMode.enum.discard%"
+                        "%config.lowConfidenceMode.enum.discard%",
+                        "%config.lowConfidenceMode.enum.includeWithWarning%"
                     ],
                     "scope": "resource",
                     "description": "%config.lowConfidenceMode.description%"
