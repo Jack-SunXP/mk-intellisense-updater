@@ -4,3 +4,11 @@
 *.vsix
 *.7z
 node_modules/**
+test/**
+tsconfig.json
+*.log
+*.7z
+COPILOT_MEMORY_EXPORT.md
+GitExtensions.settings
+install.ps1
+.gitignore

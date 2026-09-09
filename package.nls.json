@@ -8,5 +8,11 @@
   "config.lowConfidenceThreshold.description": "Match score below this value is treated as low confidence.",
   "config.lowConfidenceMode.description": "How to handle low-confidence matches (score < threshold).",
   "config.lowConfidenceMode.enum.includeWithWarning": "Include in candidates and show LOW warning.",
-  "config.lowConfidenceMode.enum.discard": "Discard low-confidence matches (default)."
+  "config.lowConfidenceMode.enum.discard": "Discard low-confidence matches (default).",
+  "config.directoryRatioThreshold.description": "A make variable is treated as an include-path list when at least this fraction of its entries resolve to existing directories. Higher values avoid picking up variables that merely look like path lists.",
+  "config.minTokensPerVariable.description": "Minimum number of entries a make variable must contain before it is considered as an include-path source.",
+  "config.includeVariableSelection.description": "Which qualifying make variables are used as include-path sources. Header directories are usually named with inc/include/hdr/header; source and link directories are not header roots and make the C/C++ parser index the whole tree.",
+  "config.includeVariableSelection.enum.incOnly": "Only variables whose name contains inc/include/hdr/header (default).",
+  "config.includeVariableSelection.enum.prefer": "Prefer inc-named variables; fall back to all qualifying variables when none is inc-named.",
+  "config.includeVariableSelection.enum.all": "Use every variable whose entries resolve to existing directories."
 }

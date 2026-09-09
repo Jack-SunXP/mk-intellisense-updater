@@ -8,5 +8,11 @@
   "config.lowConfidenceThreshold.description": "低于该分数的匹配将被视为低可信度。",
   "config.lowConfidenceMode.description": "低可信度匹配（分数 < 阈值）的处理方式。",
   "config.lowConfidenceMode.enum.includeWithWarning": "保留为候选并提示 LOW。",
-  "config.lowConfidenceMode.enum.discard": "丢弃低可信度匹配（默认）。"
+  "config.lowConfidenceMode.enum.discard": "丢弃低可信度匹配（默认）。",
+  "config.directoryRatioThreshold.description": "当一个 make 变量的取值中至少有该比例的条目能解析为真实存在的目录时，它被视为 include 路径列表。调高可避免误取仅仅是路径样式的变量。",
+  "config.minTokensPerVariable.description": "make 变量至少包含多少个条目，才会被当作 include 路径来源来考虑。",
+  "config.includeVariableSelection.description": "选择哪些符合条件的 make 变量作为 include 路径来源。头文件目录通常以 inc/include/hdr/header 命名；源码目录和链接目录并非头文件根目录，把它们加入会让 C/C++ 解析器索引整棵目录树。",
+  "config.includeVariableSelection.enum.incOnly": "仅使用名称包含 inc/include/hdr/header 的变量（默认）。",
+  "config.includeVariableSelection.enum.prefer": "优先使用 inc 命名的变量；若没有，则回退到全部符合条件的变量。",
+  "config.includeVariableSelection.enum.all": "使用所有条目能解析为真实目录的变量。"
 }
