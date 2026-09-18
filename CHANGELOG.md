@@ -8,6 +8,31 @@ project adheres to [Semantic Versioning](https://semver.org/).
 
 ---
 
+## [0.2.1]
+
+### Fixed
+
+- **Library matching no longer floods the merge list with sibling variants.**
+  The fuzzy stage scored candidate names with an unweighted token fraction, so
+  every variant of one component (`libfoo_014t_hev`, `libfoo_220d_hev`, ...)
+  tied at the same score and *all* tied candidates were kept — dozens of
+  unrelated makefiles appeared in the "merge include paths" picker.
+  **库匹配不再把同组件的兄弟变体全部列进合并清单。** 旧版模糊打分使用
+  无权重 token 比例，同一组件的所有变体得分并列，且所有并列候选全部保留，
+  导致"合并 include 路径"列表出现大量无关 mk。
+- **Resolution now prefers evidence over ties.** Three changes in
+  `src/mkcore.js`: (1) an exact-match stage (`findExactMatches` /
+  `resolveLibrarySourceStage`) runs before any fuzzy scoring; (2) fuzzy scores
+  are IDF rarity-weighted (`createTokenWeights`) so the distinguishing token
+  (`014t`) decides instead of the words shared by every candidate; (3) the
+  requesting makefile's own name tokens (`createContextMatcher`) break ties
+  between variant projects. Low-confidence fuzzy results remain discarded by
+  default (`lowConfidenceMode: discard`).
+  **解析优先使用证据而非并列。** `src/mkcore.js` 三项改动：(1) 模糊打分前先做
+  精确/同组件匹配；(2) 模糊分数按 token 稀有度（IDF）加权，由区分性词元而非
+  公共词决定；(3) 用发起方 mk 自身的名称词元在变体工程之间裁决。低可信模糊
+  结果默认仍被丢弃。
+
 ## [0.2.0]
 
 ### Added
