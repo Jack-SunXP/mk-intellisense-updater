@@ -1,2 +1,8 @@
 *.vsix
 node_modules/
+COPILOT_MEMORY_EXPORT.md
+*.7z
+GitExtensions.settings
+# Local verification harnesses reference machine-specific workspace paths.
+test/*
+!test/mkcore.test.js
