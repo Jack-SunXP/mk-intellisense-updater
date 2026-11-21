@@ -1,0 +1,46 @@
+name: Publish Extension
+
+on:
+  # Manual trigger from the Actions tab.
+  workflow_dispatch:
+  # Push a numeric version tag like 0.2.3 to publish that version.
+  # Matches the repo's existing tag convention (0.2.0 / 0.2.1 / 0.2.2),
+  # so no "v" prefix is used. The pattern is intentionally strict
+  # (exactly three dot-separated numeric segments) so odd tags such as
+  # "0.1.0.d" or "0.2.3-alpha" do not trigger a publish.
+  push:
+    tags:
+      - '[0-9]+.[0-9]+.[0-9]+'
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write # required for GitHub OIDC -> Marketplace trusted publishing
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+
+      # Guard against tagging a version that does not match package.json,
+      # which would otherwise silently publish the wrong version.
+      # Skipped for manual runs, which have no tag.
+      - name: Verify tag matches package.json version
+        if: startsWith(github.ref, 'refs/tags/')
+        run: |
+          tag="${GITHUB_REF_NAME}"
+          pkg="$(node -p "require('./package.json').version")"
+          if [ "$tag" != "$pkg" ]; then
+            echo "::error::Tag '$tag' does not match package.json version '$pkg'."
+            exit 1
+          fi
+          echo "Publishing version $pkg (tag $tag)."
+
+      # Publishes the version in package.json using Marketplace trusted
+      # publishing (OIDC). No PAT / secret is stored anywhere.
+      # --skip-duplicate makes a re-run a no-op instead of a failure.
+      - name: Publish to Visual Studio Marketplace
+        run: npx --yes @vscode/vsce publish --oidc --no-dependencies --skip-duplicate
